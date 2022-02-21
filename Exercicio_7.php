@@ -8,27 +8,45 @@
 </head>
 <body>
     <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
+    <input type="hidden" name="intentos" value="
+    <?php
+        if(!isset($_REQUEST['intentos'])){
+            echo "0";
+
+        }else {
+            echo intval($_REQUEST[intentos])+1;
+        }
+
+
+    ?>
+
+    
+    ">
     <label for="numero">Combinacion</label>
     <input type="number" name="combinacion"><br>
     <input type="submit" name="Enviar">
     <?php
         
         $combinacionSecreta = "1111";
+        if(isset($_REQUEST['intentos']) && intval($_REQUEST['intentos'])<4){
 
-        if(isset($_REQUEST['combinacion']) && filter_var($_REQUEST['combinacion'],FILTER_VALIDATE_REGEXP, 
-        array("options"=>array("regexp"=>"/[0-9]{4}/")))){
+        
+            if(isset($_REQUEST['combinacion']) && filter_var($_REQUEST['combinacion'],FILTER_VALIDATE_REGEXP, 
+            array("options"=>array("regexp"=>"/[0-9]{4}/")))){
 
-            if($_REQUEST['combinacion']==$combinacionSecreta){
-                echo "<p>La caja fuerte se ha abierto satisfactoriamente</p>";
+                if($_REQUEST['combinacion']==$combinacionSecreta){
+                    echo "<p>La caja fuerte se ha abierto satisfactoriamente</p>";
+                }else{
+                    echo "<p>Lo siento, esa no es la combinacion</p>";
+                }
+
             }else{
-                echo "<p>Lo siento, esa no es la combinacion</p>";
+                echo "<p>Introduce un numero de 4 dixitos</p>";
             }
 
-        }else{
-            echo "<p>Introduce un numero de 4 dixitos</p>";
-        }
-
-
+            }else if(isset($_REQUEST['intentos'])){
+                echo "<p>Superou o numero de intentos</p>";
+        }   
 
 
     ?>

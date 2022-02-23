@@ -7,7 +7,12 @@
     <title>Exercicio 7</title>
 </head>
 <body>
-    <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
+    <?php
+        
+        $combinacionSecreta = "1111";
+        if((isset($_REQUEST['intentos']) && intval($_REQUEST['intentos'])<4) || !isset($_REQUEST['intentos'])){
+?>
+  <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
     <input type="hidden" name="intentos" value="
     <?php
         if(!isset($_REQUEST['intentos'])){
@@ -25,12 +30,9 @@
     <label for="numero">Combinacion</label>
     <input type="number" name="combinacion"><br>
     <input type="submit" name="Enviar">
-    <?php
-        
-        $combinacionSecreta = "1111";
-        if(isset($_REQUEST['intentos']) && intval($_REQUEST['intentos'])<4){
-
-        
+    </form>
+  
+  <?php
             if(isset($_REQUEST['combinacion']) && filter_var($_REQUEST['combinacion'],FILTER_VALIDATE_REGEXP, 
             array("options"=>array("regexp"=>"/[0-9]{4}/")))){
 

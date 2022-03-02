@@ -8,36 +8,20 @@
 </head>
 <body>
     <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-    <label for="numero">Introduce un numero para la base</label><br>
-    <label for="numero">Introduce un numero para el expoñente</label><br>
-    <input type="number" name="base"> <br>
-    <input type="number" name="exponente"> <br>
+    Base: <input type="text" name="base" autofocus/><br/>
+    Potencia: <input type="text" name="potencia" autofocus/><br/>
+    <input type="hidden" name="intentos" value="<?php echo $intentos; ?>">
     <input type="submit" name="Enviar">
     </form>
 
     <?php
-        $base = $_REQUEST['base'];
-        $exponente = $_REQUEST['exponente'];
+        $base1 = $_REQUEST['base'];
+        $potencia1 = $_REQUEST['potencia'];
 
-        if (!isset($base)) {
-            echo "<p>Introduce lo pedido en el formulario</p>";
-
-        } else {
-            $potencia = 1;
-        
-        if ($exponente == 0) {
-            $potencia = 1;
+        for ($i=0; $i <= $potencia1 ; $i++) { 
+            $calculo = pow($base1, $i);
+            echo "$base1 elevado a $i=$calculo <br/>";
         }
-
-        if ($exponente > 0) {
-            for ($i=1; $i < $exponente ; $i++) { 
-                $potencia = pow($base, $i) ;
-                echo "<p>A $base e o $i = $potencia</p>";
-
-            }
-        }
-        }
-
     ?>
 </body>
 </html>

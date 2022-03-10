@@ -8,7 +8,7 @@
 </head>
 <body>
         <form action="<?php echo $_SERVER['PHP_SELF']?>" method="POST">
-            <p><input type="text" name="numero"></p>
+            <p><input type="text" name="altura"></p>
             <p><select name="seleccion">
                 <option selected value="asterisco.png">&#10036;&nbsp;Asterisco</option>
                 <option value="diamante.png">&#128142;&nbsp;Diamante</option>
@@ -18,15 +18,19 @@
             </select></p>
             <p><input type="submit" value="Calcular"></p>
         </form>
+
         <?php
-        $num=$_REQUEST["numero"];
-        $altura=$_REQUEST["seleccion"];
-        for ($i=0; $i < $altura; $i++) { 
-            for ($j=0; $j <= $i; $j++) { 
-                echo "<img src=imgs/".$fill." height='24'>";
+        $altura=$_REQUEST['altura'];
+        $seleccion=$_REQUEST['seleccion'];
+        $cadena = "";
+            for ($i=1; $i <= $altura ; $i++) { 
+                for ($j= $i; $j <= $i ; $j++) { 
+                    $cadena.= "<img src='img/".$seleccion."'>";
+                }
+                echo $cadena."<br />";
             }
-            echo "<br />";      
-        }
+
+
         ?>
 </body>
 </html>

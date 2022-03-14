@@ -30,7 +30,6 @@
                 echo $cadena."<br />";
             }
 
-
         ?>
 </body>
 </html>

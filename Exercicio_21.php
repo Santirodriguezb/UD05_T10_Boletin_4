@@ -13,8 +13,8 @@ session_start(); ?>
     if (!isset($_SESSION["impares"])) {
         $_SESSION["impares"] = array();
     }
-    if (!isset($_SESSION["numeros"])) {
-        $_SESSION["numeros"] = array();
+    if (!isset($_SESSION["pares"])) {
+        $_SESSION["pares"] = array();
     }
     if(!isset($_REQUEST["N1"])){
         ?>
@@ -26,7 +26,7 @@ session_start(); ?>
     }
     if (isset($_REQUEST["N1"]) && $_REQUEST["N1"] > 0) {
         if (isset($_REQUEST["N1"])) {
-            array_push($_SESSION["numeros"], $_REQUEST["N1"]);
+            array_push($_SESSION["pares"], $_REQUEST["N1"]);
         }
         if (isset($_REQUEST["N1"]) && $_REQUEST["N1"] % 2!=0) {
             array_push($_SESSION["impares"], $_REQUEST["N1"]);

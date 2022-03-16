@@ -20,7 +20,7 @@
         echo "<th>Potencia 3</th></tr>";
         
         
-        for ($i=$numero; $i < $numero+5; $i++) { 
+        for ($i=$numero; $i < $numero+4; $i++) { 
             $numero_cuadrado = pow($i, 2);
             $numero_cubo = pow($i, 3);
                 echo "<tr>";

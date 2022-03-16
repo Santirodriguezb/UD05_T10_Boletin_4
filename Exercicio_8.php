@@ -7,12 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-           <form action="ejercicio8.php" method="post">
+           <form action="Exercicio_8.php" method="post">
             <p><input type="text" name="N1"></p>
-            <p><input type="submit" value="Tabla"></p>
+            <p><input type="submit" value="Enviar"></p>
 <?php   
  $numero=$_POST['N1'];
-     echo "<table>";
+     echo "<table border= 1>";
      echo "<tr>";
      echo "<td>Número</td>";
      echo "<td>Multiplicación</td>";
